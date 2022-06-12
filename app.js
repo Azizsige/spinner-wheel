@@ -4,7 +4,6 @@
   let btn = document.getElementById("spin");
 
   let deg = 0;
-  let zoneSize = 45;
 
   const dataZones = {
     1: "1",
@@ -16,6 +15,11 @@
     7: "7",
     8: "8",
   };
+
+  var size = Object.keys(dataZones).length;
+
+  let zoneSize = 45;
+  console.log(zoneSize);
 
   function handleWin(acutalDeg) {
     let winner = Math.ceil(acutalDeg / zoneSize);
@@ -34,7 +38,7 @@
   });
 
   container.addEventListener("transitionend", function () {
-    const actualNumber = deg % 360;
+    const actualNumber = size / 360;
     container.style.transition = "none";
     container.style.transform = `rotate(${actualNumber}deg)`;
     handleWin(actualNumber);
