@@ -96,8 +96,8 @@ body {
 
 #spin {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50% !important;
+  left: 50% !important;
   transform: translate(-50%, -50%);
   z-index: 10;
   background-color: #e2e2e2;
