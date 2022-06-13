@@ -83,16 +83,15 @@ body {
 
 .arrow {
   position: absolute;
-  top: 15%;
+  top: 20%;
   left: 50%;
   z-index: 7;
   transform: translateX(-50%);
   color: #000;
 }
 
-.arrow::before {
-  content: "\1F817";
-  font-size: 90px;
+.fas.fa-arrow-down::before {
+  font-size: 70px;
 }
 
 #spin {
