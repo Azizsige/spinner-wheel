@@ -146,10 +146,11 @@ body {
   }
 
   #spin {
-    font-size: 15px;
-    width: 50px;
-    height: 50px;
-    letter-spacing: 0px;
+    font-size: 15px !important;
+    width: 50px !important;
+    height: 50px !important;
+    letter-spacing: 0px !important;
+    transform: translate(-50%, -25%) !important;
   }
 
   .display {

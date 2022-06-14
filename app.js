@@ -40,8 +40,8 @@
 
   container.addEventListener("transitionend", function () {
     // alert("Yeayy");
-    deg = Math.floor(3000 + Math.random() * 3000);
-    const actualNumber = deg % 360;
+    // deg = Math.floor(3000 + Math.random() * 3000);
+    const actualNumber = (deg % 360) / size;
     container.style.transition = "none";
     container.style.transform = `rotate(${actualNumber}deg)`;
     handleWin(actualNumber);
