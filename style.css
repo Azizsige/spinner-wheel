@@ -10,7 +10,6 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  overflow: hidden;
 }
 
 .container {
@@ -130,7 +129,8 @@ body {
 
 @media screen and (min-width: 360px) and (max-width: 640px) {
   body {
-    height: 50rem;
+    height: 40rem;
+    max-height: 50rem;
   }
   .container {
     width: 250px;
