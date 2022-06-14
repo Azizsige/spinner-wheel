@@ -34,14 +34,17 @@
     container.style.transition = "all 8s ease-out";
     // let numberDeg = deg % 360;
     container.style.transform = `rotate(${deg}deg)`;
+    console.log(deg);
     // number += Math.floor(5000 + Math.random() * 5000);
   });
 
   container.addEventListener("transitionend", function () {
-    const actualNumber = size / 360;
+    // alert("Yeayy");
+    deg = Math.floor(3000 + Math.random() * 3000);
+    const actualNumber = deg % 360;
     container.style.transition = "none";
     container.style.transform = `rotate(${actualNumber}deg)`;
     handleWin(actualNumber);
-    console.log(actualNumber);
+    // console.log(actualNumber);
   });
 })();
