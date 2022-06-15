@@ -6,21 +6,24 @@ body {
   margin: 0;
   padding: 0;
   background-color: #34495e;
+  overflow: hidden !important;
 }
 
 .container {
   width: auto !important;
   height: 100vh !important;
   margin: 0 auto;
+  overflow: hidden !important;
 }
 
 #app {
   position: relative;
   display: flex;
   height: 100%;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
+  overflow: hidden !important;
 }
 
 .app-spin {
@@ -45,9 +48,9 @@ body {
 
 .marker {
   position: absolute;
-  width: 50px;
+  width: 60px;
   /* left: 172px; */
-  top: 2rem;
+  top: 4.5rem;
   left: 0;
   right: 0;
   margin: auto;
@@ -55,8 +58,8 @@ body {
 }
 
 .wheel {
-  width: 25rem;
-  height: 25rem;
+  width: 40rem;
+  height: 40rem;
 }
 
 .button {
@@ -97,6 +100,7 @@ body {
 
   .marker {
     width: 40px;
+    top: 1.5rem;
   }
 
   #app {

@@ -1,112 +1,56 @@
-// (function () {
-//   let container = document.querySelector(".container");
-//   let display = document.querySelector(".display");
-//   let btn = document.getElementById("spin");
+const wheel = document.querySelector(".wheel");
+const startButton = document.querySelector(".button");
+const display = document.querySelector(".display");
 
-//   let deg = 0;
+// speed spin
+let spinSpeed = 8000;
 
-//   const dataZones = {
-//     1: "1",
-//     2: "2",
-//     3: "3",
-//     4: "4",
-//     5: "5",
-//     6: "6",
-//     7: "7",
-//     8: "8",
-//   };
+// start of setting deg
+// ubah deg start 1000, 2500, 4500, 6500 . . . dst untuk setting posisi spin berhenti
+let deg = 2500;
+// end of setting deg
 
-//   var size = Object.keys(dataZones).length;
+let zoneSize = 30;
 
-//   let zoneSize = 45;
-//   console.log(zoneSize);
+// Counter clockwise
+const symbolSegments = {
+  1: "Iphone 13 Pro",
+  2: "COBA LAGI",
+  3: "5.000.000",
+  4: "50.000",
+  5: "25.000",
+  6: "FREE SPIN",
+  7: "500.000",
+  8: "10.000",
+  9: "COBA LAGI",
+  10: "1.000.000",
+  11: "100.000",
+  12: "5.000",
+};
 
-//   function handleWin(acutalDeg) {
-//     let winner = Math.ceil(acutalDeg / zoneSize);
-//     display.innerHTML = dataZones[winner];
-//     console.log(winner);
-//   }
+const handleWin = (actualDeg) => {
+  const winningSymbolNr = Math.ceil(actualDeg / zoneSize);
+  display.innerHTML = symbolSegments[winningSymbolNr];
+};
 
-//   btn.addEventListener("click", function () {
-//     display.innerHTML = "-";
-//     deg = Math.floor(3000 + Math.random() * 3000);
-//     // Set the transition on the wheel
-//     container.style.transition = "all 8s ease-out";
-//     // let numberDeg = deg % 360;
-//     container.style.transform = `rotate(${deg}deg)`;
-//     console.log(deg);
-//     // number += Math.floor(5000 + Math.random() * 5000);
-//   });
+startButton.addEventListener("click", () => {
+  display.innerHTML = "-";
+  startButton.style.pointerEvents = "none";
 
-//   container.addEventListener("transitionend", function () {
-//     // alert("Yeayy");
-//     // deg = Math.floor(3000 + Math.random() * 3000);
-//     const actualNumber = (deg % 360) / size;
-//     container.style.transition = "none";
-//     container.style.transform = `rotate(${actualNumber}deg)`;
-//     handleWin(actualNumber);
-//     // console.log(actualNumber);
-//   });
-// })();
+  wheel.style.transition = "all 10s ease-out";
+  wheel.style.transform = `rotate(${spinSpeed}deg)`;
+  wheel.classList.add("blur");
+});
 
-// Immediately invoked function expression
-// to not pollute the global scope
-(function () {
-  const wheel = document.querySelector(".wheel");
-  const startButton = document.querySelector(".button");
-  const display = document.querySelector(".display");
+wheel.addEventListener("transitionend", () => {
+  wheel.classList.remove("blur");
+  startButton.style.pointerEvents = "auto";
+  wheel.style.transition = "none";
 
-  let deg = 0;
-  let zoneSize = 30; // deg
+  // start setting manual stop spinner
+  const actualDeg = deg / 60;
+  // end of setting manual stop spinner
 
-  // Counter clockwise
-  const symbolSegments = {
-    1: "Iphone 13 Pro",
-    2: "COBA LAGI",
-    3: "5.000.000",
-    4: "50.000",
-    5: "25.000",
-    6: "FREE SPIN",
-    7: "500.000",
-    8: "10.000",
-    9: "COBA LAGI",
-    10: "1.000.000",
-    11: "100.000",
-    12: "5.000",
-  };
-
-  const handleWin = (actualDeg) => {
-    const winningSymbolNr = Math.ceil(actualDeg / zoneSize);
-    display.innerHTML = symbolSegments[winningSymbolNr];
-  };
-
-  startButton.addEventListener("click", () => {
-    // Reset display
-    display.innerHTML = "-";
-    // Disable button during spin
-    startButton.style.pointerEvents = "none";
-    // Calculate a new rotation between 5000 and 10 000
-    deg = Math.floor(5000 + Math.random() * 5000);
-    // Set the transition on the wheel
-    wheel.style.transition = "all 10s ease-out";
-    // Rotate the wheel
-    wheel.style.transform = `rotate(${deg}deg)`;
-    // Apply the blur
-    wheel.classList.add("blur");
-  });
-
-  wheel.addEventListener("transitionend", () => {
-    wheel.classList.remove("blur");
-    startButton.style.pointerEvents = "auto";
-    wheel.style.transition = "none";
-    // start setting manual stop spinner
-    const actualDeg = deg / 60;
-    // end of setting manual stop spinner
-
-    // start of default spinner stop
-    // const actualDeg = deg % 360;
-    // end of default spinner stop
-    wheel.style.transform = `rotate(${actualDeg}deg)`;
-    handleWin(actualDeg);
-  });
-})();
+  wheel.style.transform = `rotate(${actualDeg}deg)`;
+  handleWin(actualDeg);
+});
