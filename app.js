@@ -96,19 +96,17 @@
   });
 
   wheel.addEventListener("transitionend", () => {
-    // Remove blur
     wheel.classList.remove("blur");
-    // Enable button when spin is over
     startButton.style.pointerEvents = "auto";
-    // Need to set transition to none as we want to rotate instantly
     wheel.style.transition = "none";
-    // Calculate degree on a 360 degree basis to get the "natural" real rotation
-    // Important because we want to start the next spin from that one
-    // Use modulus to get the rest value
-    const actualDeg = deg % 360;
-    // Set the real rotation instantly without animation
+    // start setting manual stop spinner
+    const actualDeg = deg / 60;
+    // end of setting manual stop spinner
+
+    // start of default spinner stop
+    // const actualDeg = deg % 360;
+    // end of default spinner stop
     wheel.style.transform = `rotate(${actualDeg}deg)`;
-    // Calculate and display the winning symbol
     handleWin(actualDeg);
   });
 })();
