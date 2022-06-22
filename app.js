@@ -23,6 +23,7 @@ const symbolSegments = {
 
 const handleWin = (actualDeg) => {
   const winningSymbolNr = Math.ceil(actualDeg / zoneSize);
+  console.log(winningSymbolNr);
   display.innerHTML = symbolSegments[winningSymbolNr];
 };
 
