@@ -33,7 +33,7 @@ startButton.addEventListener("click", () => {
 
   // ubah angka 6 sesuai value symbolSegments
   deg =
-    Math.floor((5000 + Math.random() * 5000) / 360) * 360 + 6 * zoneSize - 15;
+    Math.floor((5000 + Math.random() * 5000) / 360) * 360 + 7 * zoneSize - 15;
 
   wheel.style.transition = "all 10s ease-out";
   wheel.style.transform = `rotate(${deg}deg)`;
