@@ -16,6 +16,13 @@
     <title>Spinner Wheel</title>
   </head>
   <body>
+    <div id="popup1" class="overlay1">
+      <div class="wrapper">
+        <img src="./welcome.png" alt="" srcset="" />
+        <button id="mengerti">Saya Mengerti</button>
+      </div>
+    </div>
+
     <div class="container">
       <div id="app">
         <div class="app-spin">
@@ -28,9 +35,28 @@
           />
         </div>
         <div class="app-result">
-          <img src="./button.png" class="button" alt="" srcset="" />
-          <div class="display">. . .</div>
+          <div class="container-text">
+            <p id="textKode">Masukkan Kode Voucher</p>
+          </div>
+          <input
+            id="inputVoucher"
+            type="text"
+            name=""
+            id=""
+            placeholder="Masukkan Voucher . . ."
+            autocomplete="false"
+          />
+          <!-- <img src="./button.png" class="button" alt="" srcset="" /> -->
+          <!-- <div class="display">. . .</div> -->
+          <button class="button">Spin</button>
         </div>
+      </div>
+    </div>
+
+    <div id="popup2" class="overlay2">
+      <div class="popup">
+        <a class="close" href="#">&times;</a>
+        <div class="content">Masukkan Kode Tiket Terlebih Dahulu!</div>
       </div>
     </div>
 

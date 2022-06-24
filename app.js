@@ -1,6 +1,11 @@
 const wheel = document.querySelector(".wheel");
 const startButton = document.querySelector(".button");
 const display = document.querySelector(".display");
+let voucher = document.querySelector("#inputVoucher");
+let mengerti = document.querySelector("#mengerti");
+let popup = document.querySelector(".overlay2");
+let popupHome = document.querySelector(".overlay1");
+let close = document.querySelector(".close");
 
 let deg = 0;
 let zoneSize = 30; // deg
@@ -28,16 +33,21 @@ const handleWin = (actualDeg) => {
 };
 
 startButton.addEventListener("click", () => {
-  display.innerHTML = "-";
-  startButton.style.pointerEvents = "none";
+  if (voucher.value == "") {
+    popup.classList.add("open");
+  } else {
+    // display.innerHTML = "-";
+    startButton.style.pointerEvents = "none";
 
-  // ubah angka 6 sesuai value symbolSegments
-  deg =
-    Math.floor((5000 + Math.random() * 5000) / 360) * 360 + 1 * zoneSize - 15;
+    // ubah angka 6 sesuai value symbolSegments
+    deg =
+      Math.floor((5000 + Math.random() * 5000) / 360) * 360 + 1 * zoneSize - 15;
 
-  wheel.style.transition = "all 10s ease-out";
-  wheel.style.transform = `rotate(${deg}deg)`;
-  wheel.classList.add("blur");
+    wheel.style.transition = "all 10s ease-out";
+    wheel.style.transform = `rotate(${deg}deg)`;
+    wheel.classList.add("blur");
+    voucher.value = "";
+  }
 });
 
 wheel.addEventListener("transitionend", () => {
@@ -47,4 +57,12 @@ wheel.addEventListener("transitionend", () => {
   const actualDeg = deg % 360;
   wheel.style.transform = `rotate(${actualDeg}deg)`;
   handleWin(actualDeg);
+});
+
+close.addEventListener("click", function () {
+  popup.classList.remove("open");
+});
+
+mengerti.addEventListener("click", function () {
+  popupHome.classList.add("closeHome");
 });
