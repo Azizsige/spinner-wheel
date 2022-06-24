@@ -5,7 +5,10 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #34495e;
+  background-image: url("./SPIN\ BACKGROUND.png");
+  background-repeat: no-repeat;
+  object-fit: cover;
+  background-position: -20rem -5rem;
   overflow: hidden !important;
 }
 
@@ -14,10 +17,6 @@ body {
   height: 100vh !important;
   margin: 0 auto;
   overflow: hidden !important;
-  background-image: url("./SPIN\ BACKGROUND.png");
-  background-repeat: no-repeat;
-  object-fit: cover;
-  background-position: -20rem -5rem;
 }
 
 #app {
@@ -151,7 +150,7 @@ body {
 }
 
 .overlay1 {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -248,10 +247,10 @@ body {
     height: 100%;
   }
 
-  .container {
+  /* .container {
     height: 36rem !important;
     max-height: 60rem !important;
-  }
+  } */
 
   .button {
     width: 136px;
@@ -261,5 +260,26 @@ body {
   .display {
     font-size: 14px;
     padding: 1rem;
+  }
+
+  .wrapper {
+    width: auto;
+    height: auto;
+  }
+
+  #popup1 img {
+    width: 16rem;
+    height: 13rem;
+  }
+
+  #mengerti {
+    left: 8.7rem;
+    top: 9.5rem;
+    padding: 6px 9px;
+    font-size: 10px;
+  }
+
+  .popup {
+    width: 85%;
   }
 }
