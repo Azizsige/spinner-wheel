@@ -175,9 +175,9 @@ body {
 
 #mengerti {
   position: absolute;
-  left: 45%;
+  left: 43%;
   right: auto;
-  top: 70%;
+  top: 75%;
   margin-left: auto;
   margin-right: auto;
   /* z-index: 5; */
@@ -284,7 +284,7 @@ body {
   }
 }
 
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 640px) and (max-width: 1279px) {
   .container {
     overflow-x: hidden !important;
   }

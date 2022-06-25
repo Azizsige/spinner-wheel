@@ -4,11 +4,13 @@ const display = document.querySelector(".display");
 let voucher = document.querySelector("#inputVoucher");
 let mengerti = document.querySelector("#mengerti");
 let popup = document.querySelector(".overlay2");
+let textWarning = document.querySelector(".overlay2 .content");
 let popupHome = document.querySelector(".overlay1");
 let close = document.querySelector(".close");
 
 let deg = 0;
 let zoneSize = 30; // deg
+let voucherText = "voucher";
 
 // Counter clockwise
 const symbolSegments = {
@@ -35,6 +37,11 @@ const handleWin = (actualDeg) => {
 startButton.addEventListener("click", () => {
   if (voucher.value == "") {
     popup.classList.add("open");
+    voucher.value = "";
+  } else if (voucher.value !== voucherText) {
+    popup.classList.add("open");
+    textWarning.innerText = "Kode yang dimasukkan salah!";
+    voucher.value = "";
   } else {
     // display.innerHTML = "-";
     startButton.style.pointerEvents = "none";
