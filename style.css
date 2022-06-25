@@ -129,7 +129,8 @@ body {
   }
 }
 
-.overlay2 {
+.overlay2,
+.overlay3 {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -147,6 +148,11 @@ body {
 .closeHome {
   visibility: hidden !important;
   opacity: 0 !important;
+}
+
+.congrats {
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .overlay1 {
@@ -212,10 +218,22 @@ body {
   color: #fff;
   font-family: Tahoma, Arial, sans-serif;
 }
-.popup .close {
+#popup1 .popup .close,
+#popup2 .popup .close {
   position: absolute;
   top: 21%;
   right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+
+#popup3 .popup .close {
+  top: 21%;
+  right: 30px;
+  position: absolute;
   transition: all 200ms;
   font-size: 30px;
   font-weight: bold;
@@ -281,6 +299,10 @@ body {
 
   .popup {
     width: 85%;
+  }
+  #popup3 .popup .close {
+    top: -3px;
+    right: 6px;
   }
 }
 

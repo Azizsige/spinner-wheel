@@ -4,9 +4,11 @@ const display = document.querySelector(".display");
 let voucher = document.querySelector("#inputVoucher");
 let mengerti = document.querySelector("#mengerti");
 let popup = document.querySelector(".overlay2");
+let popupWin = document.querySelector(".overlay3");
 let textWarning = document.querySelector(".overlay2 .content");
+let textWin = document.querySelector(".overlay3 .content");
 let popupHome = document.querySelector(".overlay1");
-let close = document.querySelector(".close");
+let closes = document.querySelectorAll(".close");
 
 let deg = 0;
 let zoneSize = 30; // deg
@@ -31,7 +33,15 @@ const symbolSegments = {
 const handleWin = (actualDeg) => {
   const winningSymbolNr = Math.ceil(actualDeg / zoneSize);
   console.log(winningSymbolNr);
-  display.innerHTML = symbolSegments[winningSymbolNr];
+  if (winningSymbolNr == 2 || winningSymbolNr == 6 || winningSymbolNr == 9) {
+    textWin.innerText = `Kamu mendapatkan ${symbolSegments[winningSymbolNr]}`;
+    popupWin.classList.add("open");
+    return;
+  } else {
+    textWin.innerText = `Selamat kamu mendapatkan ${symbolSegments[winningSymbolNr]}, untuk pengambilan hadiah bisa di wa / live chat di 08171717303`;
+    popupWin.classList.add("open");
+    return;
+  }
 };
 
 startButton.addEventListener("click", () => {
@@ -47,12 +57,13 @@ startButton.addEventListener("click", () => {
     voucher.value = "";
     return;
   } else {
-    // display.innerHTML = "-";
     startButton.style.pointerEvents = "none";
 
-    // ubah angka 6 sesuai value symbolSegments
+    // ubah angka 11 sesuai value symbolSegments
     deg =
-      Math.floor((5000 + Math.random() * 5000) / 360) * 360 + 1 * zoneSize - 15;
+      Math.floor((5000 + Math.random() * 5000) / 360) * 360 +
+      11 * zoneSize -
+      15;
 
     wheel.style.transition = "all 10s ease-out";
     wheel.style.transform = `rotate(${deg}deg)`;
@@ -70,8 +81,11 @@ wheel.addEventListener("transitionend", () => {
   handleWin(actualDeg);
 });
 
-close.addEventListener("click", function () {
-  popup.classList.remove("open");
+closes.forEach(function (close) {
+  close.addEventListener("click", function () {
+    popup.classList.remove("open");
+    popupWin.classList.remove("open");
+  });
 });
 
 mengerti.addEventListener("click", function () {
