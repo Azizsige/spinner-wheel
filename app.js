@@ -37,11 +37,15 @@ const handleWin = (actualDeg) => {
 startButton.addEventListener("click", () => {
   if (voucher.value == "") {
     popup.classList.add("open");
+    textWarning.innerText = "Masukkan Kode Tiket Terlebih Dahulu!";
     voucher.value = "";
-  } else if (voucher.value !== voucherText) {
+    return;
+  }
+  if (voucher.value !== voucherText) {
     popup.classList.add("open");
     textWarning.innerText = "Kode yang dimasukkan salah!";
     voucher.value = "";
+    return;
   } else {
     // display.innerHTML = "-";
     startButton.style.pointerEvents = "none";
